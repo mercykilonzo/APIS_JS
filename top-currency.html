@@ -1,17 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Top Currency Movers</title>
-  <link rel="stylesheet" href="top-currency.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="top-currency.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
 </head>
 <body>
-  <div class="container">
-    <h2>Top Exchange Rates (Base: USD)</h2>
-    <ul id="rateList"></ul>
-  </div>
+  <nav class="navbar">
+    <div class="navbar-brand">Dairy Hub</div>
+    <ul class="navbar-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="converter.html">Rate Check</a></li>
+      <li><a href="top-currency.html" class="active">Top Movers</a></li>
+      <li><a href="watchlist.html">Watchlist</a></li>
+      <li><a href="historical.html">Historical Lookup</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero-bg"></div>
+
+  <main class="rate-card">
+   
+    <h2>Top Exchange Rates</h2>
+    <div class="table-responsive">
+      <table class="rates-table" role="table" aria-label="Top currency exchange rates">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Currency</th>
+            <th scope="col">Rate (1 USD = ?)</th>
+          </tr>
+        </thead>
+        <tbody id="rateTableBody">
+        </tbody>
+      </table>
+    </div>
+    <div class="disclaimer">
+      <small>
+        <i class="fa fa-info-circle"></i>
+        Rates are based on the latest market data and may fluctuate throughout the day.
+      </small>
+    </div>
+  </main>
+
   <script src="top-currency.js"></script>
 </body>
 </html>
-
-

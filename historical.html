@@ -1,78 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Currency Snap - Rate Checker</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="historical.css" />
+  <meta charset="UTF-8">
+  <title>Dairy Hub - Historical Rates</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="historical.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
-  <nav class="navbar">
-    <div class="navbar-brand">Currency Snap</div>
-    <ul class="navbar-links">
-      <li><a href="#" class="active">Rate Check</a></li>
-      <li><a href="#">Top Movers</a></li>
-      <li><a href="#">Watchlist</a></li>
-      <li><a href="#">Historical Lookup</a></li>
-    </ul>
-    <div class="navbar-actions">
-      <a href="#" class="nav-btn">Login</a>
-      <a href="#" class="nav-btn primary">Register</a>
-    </div>
-  </nav>
-
-  <div class="hero-bg">
+  <header>
+    <nav class="navbar">
+      <div class="navbar-brand">Dairy Hub</div>
+      <ul class="navbar-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="converter.html">Rate Check</a></li>
+        <li><a href="top-currency.html">Top Movers</a></li>
+        <li><a href="watchlist.html">Watchlist</a></li>
+        <li><a href="historical.html" class="active">Historical Lookup</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section class="hero-bg">
     <div class="hero-content">
-      <h1>Currency Rate Checker</h1>
-      <p>Check live foreign currency exchange rates</p>
+      <h1>Historical Currency Rate</h1>
     </div>
-  </div>
-
-  <main class="rate-card">
-    <div class="tabs">
-      <button class="tab active"><i class="fa fa-exchange-alt"></i> Rate Check</button>
-      <button class="tab"><i class="fa fa-paper-plane"></i> Send</button>
-      <button class="tab"><i class="fa fa-chart-line"></i> Charts</button>
-      <button class="tab"><i class="fa fa-bell"></i> Alerts</button>
-    </div>
-    <form id="rateForm" autocomplete="off">
-      <div class="form-row">
-        <div class="input-group">
-          <label for="amount">Amount</label>
-          <input type="number" id="amount" value="1" min="0" step="any" required />
+    <div class="historical-card">
+      <form id="historicalForm" autocomplete="off">
+        <div class="form-row">
+          <div class="input-group">
+            <label for="date">Date</label>
+            <input type="date" id="date" required>
+          </div>
+          <div class="input-group">
+            <label for="from">From</label>
+            <select id="from" required>
+              <option value="USD">USD - US Dollar</option>
+              <option value="KES">KES - Kenyan Shilling</option>
+              <option value="EUR">EUR - Euro</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="to">To</label>
+            <select id="to" required>
+              <option value="KES">KES - Kenyan Shilling</option>
+              <option value="USD">USD - US Dollar</option>
+              <option value="EUR">EUR - Euro</option>
+            </select>
+          </div>
+          <button type="submit" class="check-btn">Check Rate</button>
         </div>
-        <div class="input-group">
-          <label for="from">From</label>
-          <select id="from">
-            <option value="USD">USD - US Dollar</option>
-            <option value="KES">KES - Kenyan Shilling</option>
-            <option value="EUR">EUR - Euro</option>
-          </select>
-        </div>
-        <button type="button" id="swapBtn" class="swap-btn" aria-label="Swap currencies">
-          <i class="fa fa-arrows-rotate"></i>
-        </button>
-        <div class="input-group">
-          <label for="to">To</label>
-          <select id="to">
-            <option value="KES">KES - Kenyan Shilling</option>
-            <option value="USD">USD - US Dollar</option>
-            <option value="EUR">EUR - Euro</option>
-          </select>
-        </div>
-        <button type="submit" id="checkRate" class="convert-btn">Check Rate</button>
-      </div>
-      <div id="result" aria-live="polite"></div>
-    </form>
-    <div class="disclaimer">
-      <small>
+        <div id="result"></div>
+      </form>
+      <div class="historical-note">
         <i class="fa fa-info-circle"></i>
-        We use the mid-market rate for our Rate Checker. This is for informational purposes only.
-      </small>
+        Historical rates are based on the mid-market rate at the selected date.
+      </div>
     </div>
-  </main>
-
+  </section>
   <script src="historical.js"></script>
 </body>
 </html>
+

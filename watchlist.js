@@ -2,11 +2,16 @@ const apiKey = 'cur_live_TrOUDigrn9exLlIgcVIHaM8jDvkTQFfiUiIY1T2M';
 const watchlist = document.getElementById('watchlist');
 const addedPairs = new Set();
 
-document.getElementById('addBtn').addEventListener('click', async () => {
+document.getElementById('watchForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
   const from = document.getElementById('from').value;
   const to = document.getElementById('to').value;
   const pair = `${from}/${to}`;
 
+  if (from === to) {
+    alert("Please select two different currencies.");
+    return;
+  }
   if (addedPairs.has(pair)) return;
 
   const url = `https://api.currencyapi.com/v3/latest?apikey=${apiKey}&base_currency=${from}&currencies=${to}`;

@@ -1,73 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Currency Snap</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dairy Hub - Welcome</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-    <div class="nav">
-        <nav>
-            <a href="">Currency Converter</a>
-            <a href=""> Top Currency</a>
-            <a href=""> Watchlist</a>
-            <a href=""> Lookups</a>
-        </nav>
+  <header>
+    <nav class="navbar">
+      <div class="navbar-brand">Dairy Hub</div>
+      <ul class="navbar-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="converter.html">Rate Check</a></li>
+        <li><a href="top-currency.html">Top Movers</a></li>
+        <li><a href="watchlist.html">Watchlist</a></li>
+        <li><a href="historical.html">Historical Lookup</a></li>
+      </ul>
+    </nav>
+  </header>
 
+  <section class="hero-bg home-hero">
+    <div class="hero-content home-content">
+      <h1>Welcome to <span class="highlight">Dairy Hub</span></h1>
+      <p>Your trusted companion for live currency conversion, tracking, and insights.</p>
+      <a href="converter.html" class="btn-primary">Get Started</a>
     </div>
-    <div class="container">
-        <h1>Currency Converter</h1>
-        <label>From:</label>
-        <select id="from">
-            <option value="USD">USD</option>
-            <option value="EUR">EUR</option>
-            <option value="KES">KES</option>
-            <option value="RWF">RWF</option>
-        </select>
-        <label>To:</label>
-        <select id="to">
-            <option value="KES">KES</option>
-            <option value="USD">USD</option>
-            <option value="EUR">EUR</option>
-            <option value="RWF">RWF</option>
-            <option value="ETB">ETB</option>
-        </select>
-        <label>Amount:</label>
-        <input type="number" id="amount" value="10" />
-        <button onclick="convert()">Convert</button>
-        <div id="result"></div>
+  </section>
+
+  <section class="features">
+    <div class="feature-card">
+      <h2>&#x26A1; Instant Conversion</h2>
+      <p>Convert any currency quickly with real-time rates powered by trusted APIs.</p>
     </div>
-    <script src="index.js"></script>
+    <div class="feature-card">
+      <h2>&#128202;Track Your Favorites</h2>
+      <p>Create your personalized watchlist and monitor currency movements effortlessly.</p>
+    </div>
+    <div class="feature-card">
+      <h2>&#128269; Historical Data</h2>
+      <p>Explore detailed historical currency trends to make informed decisions.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Dairy Hub. All rights reserved.</p>
+  </footer>
 </body>
-
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

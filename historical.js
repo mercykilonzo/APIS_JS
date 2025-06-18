@@ -1,42 +1,26 @@
-const fromSelect = document.getElementById('from');
-const toSelect = document.getElementById('to');
-const swapBtn = document.getElementById('swapBtn');
-const result = document.getElementById('result');
-const amountInput = document.getElementById('amount');
+const apiKey = 'cur_live_TrOUDigrn9exLlIgcVIHaM8jDvkTQFfiUiIY1T2M';
 
-swapBtn.addEventListener('click', () => {
-  const temp = fromSelect.value;
-  fromSelect.value = toSelect.value;
-  toSelect.value = temp;
-  result.textContent = '';
-});
-
-document.getElementById('rateForm').addEventListener('submit', async (e) => {
+document.getElementById('historicalForm').addEventListener('submit', async (e) => {
   e.preventDefault();
-  const amount = parseFloat(amountInput.value);
-  const from = fromSelect.value;
-  const to = toSelect.value;
-  if (!amount || amount <= 0) {
-    result.textContent = "Enter a valid amount.";
+  const date = document.getElementById('date').value;
+  const from = document.getElementById('from').value;
+  const to = document.getElementById('to').value;
+  const result = document.getElementById('result');
+
+  if (!date) {
+    result.textContent = " Please select a date.";
     return;
   }
-  if (from === to) {
-    result.textContent = "Please select two different currencies.";
-    return;
-  }
-  result.textContent = "Fetching rate...";
+
+  const url = `https://api.currencyapi.com/v3/historical?apikey=${apiKey}&date=${date}&base_currency=${from}&currencies=${to}`;
 
   try {
-    const res = await fetch(`https://api.exchangerate-api.com/v4/latest/${from}`);
+    const res = await fetch(url);
     const data = await res.json();
-    if (!data.rates || !data.rates[to]) {
-      result.textContent = "No data available for this currency pair.";
-      return;
-    }
-    const rate = data.rates[to];
-    const converted = (amount * rate).toFixed(4);
-    result.textContent = `Rate: 1 ${from} = ${rate} ${to} | ${amount} ${from} = ${converted} ${to}`;
+
+    const rate = data.data[to].value;
+    result.textContent = `On ${date}, 1 ${from} = ${rate} ${to}`;
   } catch (err) {
-    result.textContent = "Could not fetch data. Please try again later.";
+    result.textContent = " Could not fetch data.";
   }
 });
