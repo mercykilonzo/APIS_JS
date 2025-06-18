@@ -3,6 +3,7 @@ const swapBtn = document.getElementById('swap-btn');
 const from = document.getElementById('from');
 const to = document.getElementById('to');
 
+
 if (swapBtn) {
   swapBtn.onclick = function() {
     const temp = from.value;
@@ -17,7 +18,7 @@ document.getElementById('rateForm').onsubmit = async function(e) {
 };
 
 async function convert() {
-  const amount = parseFloat(document.getElementById('amount').value);
+  const amount = document.getElementById('amount').value;
   if (isNaN(amount) || amount <= 0) {
     ans.textContent = "Please enter a valid amount greater than zero.";
     return;

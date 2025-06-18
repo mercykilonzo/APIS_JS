@@ -18,7 +18,7 @@ document.getElementById('watchForm').addEventListener('submit', async (e) => {
   try {
     const res = await fetch(url);
     const data = await res.json();
-    const rate = data.data[to].value;
+    const rate = data.data[to].value.toFixed(2);
 
     const li = document.createElement('li');
     li.textContent = `1 ${from} = ${rate} ${to}`;

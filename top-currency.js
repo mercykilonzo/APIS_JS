@@ -20,7 +20,7 @@ async function fetchRates() {
       tr.innerHTML = `
         <td>${i + 1}</td>
         <td>${currency}</td>
-        <td>${info.value.toFixed(4)}</td>
+        <td>${info.value.toFixed(2)}</td>
       `;
       rateTableBody.appendChild(tr);
     });

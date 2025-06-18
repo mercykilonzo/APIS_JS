@@ -1,4 +1,5 @@
 const apiKey = 'cur_live_TrOUDigrn9exLlIgcVIHaM8jDvkTQFfiUiIY1T2M';
+const historicalForm = document.getElementById('historicalForm');
 
 document.getElementById('historicalForm').addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -18,7 +19,8 @@ document.getElementById('historicalForm').addEventListener('submit', async (e) =
     const res = await fetch(url);
     const data = await res.json();
 
-    const rate = data.data[to].value;
+    const rate = data.data[to].value.toFixed(2);
+    // rate.toFixed(2)
     result.textContent = `On ${date}, 1 ${from} = ${rate} ${to}`;
   } catch (err) {
     result.textContent = " Could not fetch data.";
